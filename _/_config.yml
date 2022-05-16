@@ -1,0 +1,27 @@
+---
+title: Barak Framework Blog
+keywords: barak framework, blog
+description: Barak Framework Blog Sayfası
+baseurl: "/blog"
+url: https://barak-framework.github.io/blog
+permalink: "/categories/:categories/:title/"
+highlighter: pygments
+markdown: rdiscount
+rdiscount:
+  extensions:
+  - smart
+author: Barak Framework
+editor: vim
+email: barak.framework@gmail.com
+cv: 
+disqus: 
+github: barak-framework
+trello: 
+linkedin: 
+googleplus: 
+googleanalyticsid: 
+twitter: 
+facebook: 
+instagram: 
+foursquare: 
+stack: 
