@@ -2,7 +2,7 @@
 title: Barak Framework Blog
 keywords: "barak framework, blog"
 description: Barak Framework Blog Sayfası
-baseurl: 
+baseurl: "/blog"
 url: https://barak-framework.github.io/blog
 permalink: "/categories/:categories/:title/"
 highlighter: pygments
