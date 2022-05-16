@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Barak FarmewRraramework</title>
+  <title>Barak Framework</title>
   <link href="https://barak-framework.github.io/blog/atom.xml" rel="self"/>
   <link href="https://barak-framework.github.io/blog"/>
-  <updated>2022-05-16T07:27:41+00:00</updated>
+  <updated>2022-05-16T07:30:38+00:00</updated>
   <id></id>
 
   <author>
-    <name>Barak FarmewRraramework</name>
+    <name>Barak Framework</name>
     <email>barak.framework@gmail.com</email>
   </author>
 

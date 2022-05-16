@@ -1,6 +1,6 @@
 ---
 title: Barak Framework Blog
-keywords: "barak fre\bamework, blog"
+keywords: "barak framework, blog"
 description: Barak Framework Blog Sayfası
 baseurl: 
 url: https://barak-framework.github.io/blog
@@ -10,14 +10,14 @@ markdown: rdiscount
 rdiscount:
   extensions:
   - smart
-author: "Barak Farmew\b\b\b\b\bRra\b\b\bramework"
+author: "Barak Framework"
 editor: vim
 email: barak.framework@gmail.com
 cv: 
 disqus: 
 github: barak-framework
 trello: 
-linkedin: barak_framework
+linkedin: company/18132672
 googleanalyticsid: 
 twitter: 
 facebook: 
