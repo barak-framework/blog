@@ -1,139 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title></title>
-  <link href="/atom.xml" rel="self"/>
-  <link href=""/>
-  <updated>2022-05-16T07:24:59+00:00</updated>
+  <title>Barak FarmewRraramework</title>
+  <link href="https://barak-framework.github.io/blog/atom.xml" rel="self"/>
+  <link href="https://barak-framework.github.io/blog"/>
+  <updated>2022-05-16T07:27:41+00:00</updated>
   <id></id>
 
   <author>
-    <name></name>
-    <email></email>
+    <name>Barak FarmewRraramework</name>
+    <email>barak.framework@gmail.com</email>
   </author>
 
   
   <entry>
     <title>LEMP →  Linux, Nginx, MySQL, PHP-220512</title>
-    <link href="/linux/2022/05/12/lemp.html"/>
+    <link href="https://barak-framework.github.io/blog/categories/linux/lemp/"/>
     <updated>2022-05-12T00:00:00+00:00</updated>
-    <id>/linux/2022/05/12/lemp</id>
+    <id>/categories/linux/lemp</id>
     <content type="html">&lt;p&gt;Kullanacağımız ortamı sırayla kuralım:&lt;/p&gt;
 
-&lt;h4 id=&quot;mysql-kurulumu&quot;&gt;MySQL kurulumu&lt;/h4&gt;
+&lt;h4&gt;MySQL kurulumu&lt;/h4&gt;
 
 &lt;p&gt;Paketi kuruyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install mysql-server mysql-client
+&lt;pre&gt;&lt;code&gt;sudo apt-get install mysql-server mysql-client
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;Kurulumda bizden &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql-server&lt;/code&gt; için root şifresi istiyor, bunları girip kurulumu bitiriyoruz.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;MySQL&lt;/code&gt; processi çalışıyor mu bakıyoruz:&lt;/p&gt;
+&lt;p&gt;Kurulumda bizden &lt;code&gt;mysql-server&lt;/code&gt; için root şifresi istiyor, bunları girip kurulumu bitiriyoruz.
+&lt;code&gt;MySQL&lt;/code&gt; processi çalışıyor mu bakıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ps aux | grep mysqld
-	mysql  3799  0.5  3.6 145392 18484 ?    Ssl  10:42   0:00 /usr/sbin/mysqld
-	hummer 3891  0.0  0.1   3208   808 pts/0 S+   10:43   0:00 grep --color=auto mysqld
+&lt;pre&gt;&lt;code&gt;sudo ps aux | grep mysqld
+    mysql  3799  0.5  3.6 145392 18484 ?    Ssl  10:42   0:00 /usr/sbin/mysqld
+    hummer 3891  0.0  0.1   3208   808 pts/0 S+   10:43   0:00 grep --color=auto mysqld
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ mysql -u root -p&lt;/code&gt; diyerek &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql&lt;/code&gt; denememizi yapıyoruz&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ mysql -u root -p&lt;/code&gt; diyerek &lt;code&gt;mysql&lt;/code&gt; denememizi yapıyoruz&lt;/p&gt;
 
-&lt;h4 id=&quot;nginx-kurulumu&quot;&gt;Nginx kurulumu&lt;/h4&gt;
+&lt;h4&gt;Nginx kurulumu&lt;/h4&gt;
 
 &lt;p&gt;Paketi kuruyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install apache2 nginx
+&lt;pre&gt;&lt;code&gt;sudo apt-get install apache2 nginx
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;(&lt;code class=&quot;highlighter-rouge&quot;&gt;apache2&lt;/code&gt; kurmamızın nedeni &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/html&lt;/code&gt; dizini oluşturmada gerekli olduğu için)
-nginx’i tekrar başlatalım:&lt;/p&gt;
+&lt;p&gt;(&lt;code&gt;apache2&lt;/code&gt; kurmamızın nedeni &lt;code&gt;/var/www/html&lt;/code&gt; dizini oluşturmada gerekli olduğu için)
+nginx&#39;i tekrar başlatalım:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx start
-	Starting nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-	configuration file /etc/nginx/nginx.conf test is successful
-	nginx.
+&lt;pre&gt;&lt;code&gt;sudo service nginx start
+    Starting nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    configuration file /etc/nginx/nginx.conf test is successful
+    nginx.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;nginx processi çalışıyor mu bakıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netstat -pantu | grep :80
-	(Not all processes could be identified, non-owned process info
-	 will not be shown, you would have to be root to see it all.)
-	 tcp        0      0 0.0.0.0:80              0.0.0.0:*               DİNLE      -
+&lt;pre&gt;&lt;code&gt;netstat -pantu | grep :80
+    (Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+     tcp        0      0 0.0.0.0:80              0.0.0.0:*               DİNLE      -
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;burdaki&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://gdemir.github.io/file/nginx-ayar
+&lt;pre&gt;&lt;code&gt;wget https://gdemir.github.io/file/nginx-ayar
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;dosyasını indirip aşağıdaki komutla default dosyasına ayar bilgilerimizi yüklüyelim:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo install -m 644 nginx-ayar /etc/nginx/sites-available/default
+&lt;pre&gt;&lt;code&gt;sudo install -m 644 nginx-ayar /etc/nginx/sites-available/default
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;Dizin izinlerini ayarlayalım:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chown -R www-data:www-data /var/www/html
+&lt;pre&gt;&lt;code&gt;sudo chown -R www-data:www-data /var/www/html
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;web sayfasından &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost&lt;/code&gt;‘a girelim. Eğer sorunsuz yüklendiyse ise şu şekilde bir çıktı almamız gerek. &lt;code class=&quot;highlighter-rouge&quot;&gt;Nginx&lt;/code&gt;‘i başlatmak için bilgisayarı tekrar başlatıyoruz.&lt;/p&gt;
+&lt;p&gt;web sayfasından &lt;code&gt;http://localhost&lt;/code&gt;&amp;lsquo;a girelim. Eğer sorunsuz yüklendiyse ise şu şekilde bir çıktı almamız gerek. &lt;code&gt;Nginx&lt;/code&gt;&#39;i başlatmak için bilgisayarı tekrar başlatıyoruz.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo reboot
+&lt;pre&gt;&lt;code&gt;sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Nginx&lt;/code&gt;‘i tekrar başlatıyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Nginx&lt;/code&gt;&amp;lsquo;i tekrar başlatıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx start
+&lt;pre&gt;&lt;code&gt;sudo service nginx start
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;h4 id=&quot;php-kurulumu&quot;&gt;PHP kurulumu&lt;/h4&gt;
+&lt;h4&gt;PHP kurulumu&lt;/h4&gt;
 
 &lt;p&gt;Paketi kuruyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install php7.0-fpm php7.0-mysql
+&lt;pre&gt;&lt;code&gt;sudo apt-get install php7.0-fpm php7.0-mysql
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP&lt;/code&gt;i yapılandırıyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;PHP&lt;/code&gt;i yapılandırıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo $EDITOR /etc/php/7.0/fpm/php.ini
+&lt;pre&gt;&lt;code&gt;sudo $EDITOR /etc/php/7.0/fpm/php.ini
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;bu dosyada ki &lt;code class=&quot;highlighter-rouge&quot;&gt;cgi.fix_pathinfo=1&lt;/code&gt; satırını aşağıdaki gibi ayarlıyoruz:&lt;/p&gt;
+&lt;p&gt;bu dosyada ki &lt;code&gt;cgi.fix_pathinfo=1&lt;/code&gt; satırını aşağıdaki gibi ayarlıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cgi.fix_pathinfo=0
+&lt;pre&gt;&lt;code&gt;cgi.fix_pathinfo=0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PHP&lt;/code&gt;‘i tekrar başlatıyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;PHP&lt;/code&gt;&amp;lsquo;i tekrar başlatıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service php5-fpm restart
+&lt;pre&gt;&lt;code&gt;sudo service php5-fpm restart
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;dizin izinlerini ayarlıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chmod 777 -R /var/www/html
+&lt;pre&gt;&lt;code&gt;sudo chmod 777 -R /var/www/html
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;test yapıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;&amp;lt;?php echo phpinfo(); ?&amp;gt;&quot; &amp;gt; /var/www/html/test.php
+&lt;pre&gt;&lt;code&gt;echo &quot;&amp;lt;?php echo phpinfo(); ?&amp;gt;&quot; &amp;gt; /var/www/html/test.php
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;tarayıcı da &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost/test.php&lt;/code&gt; diyerek php ön bilgisinin geldiğini görüp kontrol ediyoruz.&lt;/p&gt;
+&lt;p&gt;tarayıcı da &lt;code&gt;localhost/test.php&lt;/code&gt; diyerek php ön bilgisinin geldiğini görüp kontrol ediyoruz.&lt;/p&gt;
 
 &lt;p&gt;bu kadar her şey tamam!&lt;/p&gt;
 </content>
@@ -141,68 +125,60 @@ nginx’i tekrar başlatalım:&lt;/p&gt;
   
   <entry>
     <title>LAMP →  Linux, apache, MySQL, PHP-220512</title>
-    <link href="/linux/2022/05/12/lamp.html"/>
+    <link href="https://barak-framework.github.io/blog/categories/linux/lamp/"/>
     <updated>2022-05-12T00:00:00+00:00</updated>
-    <id>/linux/2022/05/12/lamp</id>
-    <content type="html">&lt;h4 id=&quot;mysql-kurulumu&quot;&gt;MySQL Kurulumu&lt;/h4&gt;
+    <id>/categories/linux/lamp</id>
+    <content type="html">&lt;h4&gt;MySQL Kurulumu&lt;/h4&gt;
 
 &lt;p&gt;Paketi kuruyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install mysql-server mysql-client
+&lt;pre&gt;&lt;code&gt;sudo apt-get install mysql-server mysql-client
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;Kurulumda bizden &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql-server&lt;/code&gt; için root şifresi istiyor bunları girip kurulumu bitiriyoruz. MySQL processi çalışıyor mu bakıyoruz:&lt;/p&gt;
+&lt;p&gt;Kurulumda bizden &lt;code&gt;mysql-server&lt;/code&gt; için root şifresi istiyor bunları girip kurulumu bitiriyoruz. MySQL processi çalışıyor mu bakıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ps aux | grep mysqld
-	mysql  3799  0.5  3.6 145392 18484 ?    Ssl  10:42   0:00 /usr/sbin/mysqld
-	hummer 3891  0.0  0.1   3208   808 pts/0 S+   10:43   0:00 grep --color=auto mysqld
+&lt;pre&gt;&lt;code&gt;sudo ps aux | grep mysqld
+    mysql  3799  0.5  3.6 145392 18484 ?    Ssl  10:42   0:00 /usr/sbin/mysqld
+    hummer 3891  0.0  0.1   3208   808 pts/0 S+   10:43   0:00 grep --color=auto mysqld
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ mysql -u root -p&lt;/code&gt; diyerek &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql&lt;/code&gt; denememizi yapıyoruz&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ mysql -u root -p&lt;/code&gt; diyerek &lt;code&gt;mysql&lt;/code&gt; denememizi yapıyoruz&lt;/p&gt;
 
-&lt;h4 id=&quot;apache-kurulumu&quot;&gt;Apache Kurulumu&lt;/h4&gt;
+&lt;h4&gt;Apache Kurulumu&lt;/h4&gt;
 
 &lt;p&gt;Paketi kuruyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install apache2
+&lt;pre&gt;&lt;code&gt;sudo apt-get install apache2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apache&lt;/code&gt; processi çalışıyor mu bakıyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apache&lt;/code&gt; processi çalışıyor mu bakıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ps aux | grep apache2
+&lt;pre&gt;&lt;code&gt;sudo ps aux | grep apache2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;h4 id=&quot;php-kurulumu&quot;&gt;PHP Kurulumu&lt;/h4&gt;
+&lt;h4&gt;PHP Kurulumu&lt;/h4&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt; için &lt;code class=&quot;highlighter-rouge&quot;&gt;php7.0&lt;/code&gt; paketini, &lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt; üzerinden &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql&lt;/code&gt; ve &lt;code class=&quot;highlighter-rouge&quot;&gt;apache&lt;/code&gt;ye bağlantıyı sağlamak için &lt;code class=&quot;highlighter-rouge&quot;&gt;php7.0-mysql&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;libapache2-mod-php7.0&lt;/code&gt; modüllerini yüklüyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;php&lt;/code&gt; için &lt;code&gt;php7.0&lt;/code&gt; paketini, &lt;code&gt;php&lt;/code&gt; üzerinden &lt;code&gt;mysql&lt;/code&gt; ve &lt;code&gt;apache&lt;/code&gt;ye bağlantıyı sağlamak için &lt;code&gt;php7.0-mysql&lt;/code&gt;, &lt;code&gt;libapache2-mod-php7.0&lt;/code&gt; modüllerini yüklüyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install php7.0 libapache2-mod-php7.0 php7.0-mysql
+&lt;pre&gt;&lt;code&gt;sudo apt-get install php7.0 libapache2-mod-php7.0 php7.0-mysql
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apache&lt;/code&gt;yi yeniden başlatıyoruz:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apache&lt;/code&gt;yi yeniden başlatıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service apache2 restart
+&lt;pre&gt;&lt;code&gt;sudo service apache2 restart
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;dizin izinlerini ayarlıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chmod 777 -R /var/www/html
+&lt;pre&gt;&lt;code&gt;sudo chmod 777 -R /var/www/html
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;test yapıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;&amp;lt;?php echo phpinfo(); ?&amp;gt;&quot; &amp;gt; /var/www/html/test.php
+&lt;pre&gt;&lt;code&gt;echo &quot;&amp;lt;?php echo phpinfo(); ?&amp;gt;&quot; &amp;gt; /var/www/html/test.php
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;tarayıcı da &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost/test.php&lt;/code&gt; diyerek php ön bilgisinin geldiğini görüp kontrol ediyoruz.&lt;/p&gt;
+&lt;p&gt;tarayıcı da &lt;code&gt;localhost/test.php&lt;/code&gt; diyerek php ön bilgisinin geldiğini görüp kontrol ediyoruz.&lt;/p&gt;
 
 &lt;p&gt;Buraya kadar her şey tamam!&lt;/p&gt;
 </content>
@@ -210,107 +186,94 @@ nginx’i tekrar başlatalım:&lt;/p&gt;
   
   <entry>
     <title>Composer-220512</title>
-    <link href="/php/2022/05/12/composer.html"/>
+    <link href="https://barak-framework.github.io/blog/categories/php/composer/"/>
     <updated>2022-05-12T00:00:00+00:00</updated>
-    <id>/php/2022/05/12/composer</id>
+    <id>/categories/php/composer</id>
     <content type="html">&lt;p&gt;Composer PHP için geliştirilmiş bir Paket Yöneticisi‘dir. Bir framework’ün veya bir bileşenin bağımlı olduğu diğer bileşenleri ve gereksinimleri yönetir.&lt;/p&gt;
 
-&lt;h3 id=&quot;composer-nasl-kurulur&quot;&gt;Composer Nasıl Kurulur?&lt;/h3&gt;
+&lt;h3&gt;Composer Nasıl Kurulur?&lt;/h3&gt;
 
-&lt;p&gt;Kullanmak istediğiniz projenizin içinde veya framework’ün içerisinde aşağıdaki gibi &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt; dosyasını indiriyoruz:&lt;/p&gt;
+&lt;p&gt;Kullanmak istediğiniz projenizin içinde veya framework&#39;ün içerisinde aşağıdaki gibi &lt;code&gt;composer.phar&lt;/code&gt; dosyasını indiriyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -sS https://getcomposer.org/installer | php
+&lt;pre&gt;&lt;code&gt;curl -sS https://getcomposer.org/installer | php
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;İndirilen &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt; dosyasını global olarak her yerden &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt; adı altında kullanmak için taşıma yapıyoruz:&lt;/p&gt;
+&lt;p&gt;İndirilen &lt;code&gt;composer.phar&lt;/code&gt; dosyasını global olarak her yerden &lt;code&gt;composer&lt;/code&gt; adı altında kullanmak için taşıma yapıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mv composer.phar /usr/local/bin/composer
+&lt;pre&gt;&lt;code&gt;mv composer.phar /usr/local/bin/composer
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;h3 id=&quot;composer-nasl-kullanlr&quot;&gt;Composer Nasıl Kullanılır&lt;/h3&gt;
+&lt;h3&gt;Composer Nasıl Kullanılır&lt;/h3&gt;
 
-&lt;p&gt;İndirdiğimiz &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt; dosyası &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; dosyasının içersindeki paketlerin versiyonlarına göre okuyup indirir. Yani &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; gerekli paketlerin tanımlandığı dosyadır.&lt;/p&gt;
+&lt;p&gt;İndirdiğimiz &lt;code&gt;composer.phar&lt;/code&gt; dosyası &lt;code&gt;composer.json&lt;/code&gt; dosyasının içersindeki paketlerin versiyonlarına göre okuyup indirir. Yani &lt;code&gt;composer.json&lt;/code&gt; gerekli paketlerin tanımlandığı dosyadır.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Ör.: &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Ör.: &lt;code&gt;composer.json&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;barak-framework/barak&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;project&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Barak Framework&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;keywords&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;barak&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;turkmen&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;framework&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;homepage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://github.com/barak-framework/barak&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MIT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;authors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gökhan DEMİR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gdemir3327@gmail.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;homepage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://gdemir.github.io&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Developer&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;require&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;=5.4.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;phpmailer/phpmailer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;~5.2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &quot;name&quot;: &quot;barak-framework/barak&quot;,
+  &quot;type&quot;: &quot;project&quot;,
+  &quot;description&quot;: &quot;Barak Framework&quot;,
+  &quot;keywords&quot;: [&quot;barak&quot;, &quot;turkmen&quot;, &quot;framework&quot;],
+  &quot;homepage&quot;: &quot;https://github.com/barak-framework/barak&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;authors&quot;: [
+    {
+      &quot;name&quot;: &quot;Gökhan DEMİR&quot;,
+      &quot;email&quot;: &quot;gdemir3327@gmail.com&quot;,
+      &quot;homepage&quot;: &quot;https://gdemir.github.io&quot;,
+      &quot;role&quot;: &quot;Developer&quot;
+    }
+  ],
+  &quot;require&quot;: {
+    &quot;php&quot;: &quot;&amp;gt;=5.4.0&quot;,
+    &quot;phpmailer/phpmailer&quot;: &quot;~5.2&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;yukarıdaki örnekte olduğu gibi projenin gereksinimlerinde php ve phpmailer gözükmektedir:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;require&quot;: {
+&lt;pre&gt;&lt;code&gt;&quot;require&quot;: {
   &quot;php&quot;: &quot;&amp;gt;=5.4.0&quot;,
   &quot;phpmailer/phpmailer&quot;: &quot;~5.2&quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;h3 id=&quot;composer-le-baml-paketlerin-ndirilmesi&quot;&gt;Composer İle Bağımlı Paketlerin İndirilmesi&lt;/h3&gt;
+&lt;h3&gt;Composer İle Bağımlı Paketlerin İndirilmesi&lt;/h3&gt;
 
-&lt;p&gt;Projenin içine indirdiğimiz indirdiğimiz &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt; gerekli paketlerin kurulumunu yapacağız, bunun için aşağıdaki komutu kullanıyoruz:&lt;/p&gt;
+&lt;p&gt;Projenin içine indirdiğimiz indirdiğimiz &lt;code&gt;composer&lt;/code&gt; gerekli paketlerin kurulumunu yapacağız, bunun için aşağıdaki komutu kullanıyoruz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;composer install
+&lt;pre&gt;&lt;code&gt;composer install
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;yukarıdaki komut ile ilgili projemizin içerisinde aynı dizindeki &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; dosyasını okuyup ilgili paketleri &lt;code class=&quot;highlighter-rouge&quot;&gt;vendor/&lt;/code&gt; altına indirecektir. Bu paketlerin belli bir formata göre okuyan &lt;code class=&quot;highlighter-rouge&quot;&gt;vendor/autoload.php&lt;/code&gt; ana yükleyici dosyası da inmiş olacaktır. Bu dosyayı nerede kullanırsak tüm paketleri otomatik yükleyemiş olacaksınız bunun için ilgili &lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt; dosyanızın içerisinde aşağıdaki komutu eklemeni yeterli olacaktır:&lt;/p&gt;
+&lt;p&gt;yukarıdaki komut ile ilgili projemizin içerisinde aynı dizindeki &lt;code&gt;composer.json&lt;/code&gt; dosyasını okuyup ilgili paketleri &lt;code&gt;vendor/&lt;/code&gt; altına indirecektir. Bu paketlerin belli bir formata göre okuyan &lt;code&gt;vendor/autoload.php&lt;/code&gt; ana yükleyici dosyası da inmiş olacaktır. Bu dosyayı nerede kullanırsak tüm paketleri otomatik yükleyemiş olacaksınız bunun için ilgili &lt;code&gt;php&lt;/code&gt; dosyanızın içerisinde aşağıdaki komutu eklemeni yeterli olacaktır:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require &quot;vendor/autoload.php&quot;;
+&lt;pre&gt;&lt;code&gt;require &quot;vendor/autoload.php&quot;;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;Evet buraya kadar her şey tamam artık istenilen tüm paketlerin sınıflarını çağrıldığı yerde kullanabilirsiniz!&lt;/p&gt;
 
-&lt;h3 id=&quot;composer-ile-yeni-paket-yklenmesi&quot;&gt;Composer ile Yeni Paket Yüklenmesi&lt;/h3&gt;
+&lt;h3&gt;Composer ile Yeni Paket Yüklenmesi&lt;/h3&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; sahip projenin içersindeyken &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.lock&lt;/code&gt; dosyasını silin:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;composer.json&lt;/code&gt; sahip projenin içersindeyken &lt;code&gt;composer.lock&lt;/code&gt; dosyasını silin:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm -rf composer.lock
+&lt;pre&gt;&lt;code&gt;sudo rm -rf composer.lock
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;daha sonra gerekli paketi örnek olarak şekilde kurabilirsiniz:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;composer require phpmailer/phpmailer
+&lt;pre&gt;&lt;code&gt;composer require phpmailer/phpmailer
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;bu komut &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; içersindeki &lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt; hashine ekleme yapar ve &lt;code class=&quot;highlighter-rouge&quot;&gt;vendor&lt;/code&gt; dizinin içersine istenilen paketi yerleştirir. Bu şekilde ilgili pakete erişebilirsiniz.&lt;/p&gt;
+&lt;p&gt;bu komut &lt;code&gt;composer.json&lt;/code&gt; içersindeki &lt;code&gt;required&lt;/code&gt; hashine ekleme yapar ve &lt;code&gt;vendor&lt;/code&gt; dizinin içersine istenilen paketi yerleştirir. Bu şekilde ilgili pakete erişebilirsiniz.&lt;/p&gt;
 
-&lt;h4 id=&quot;kaynak&quot;&gt;Kaynak&lt;/h4&gt;
+&lt;h4&gt;Kaynak&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://getcomposer.org/&quot;&gt;https://getcomposer.org/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.teknomavi.com/yazilim/php/composer-paket-yoneticisi-nedir-nasil-kurulur-nasil-kullanilir/&quot;&gt;http://www.teknomavi.com/yazilim/php/composer-paket-yoneticisi-nedir-nasil-kurulur-nasil-kullanilir/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://getcomposer.org/&quot;&gt;https://getcomposer.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.teknomavi.com/yazilim/php/composer-paket-yoneticisi-nedir-nasil-kurulur-nasil-kullanilir/&quot;&gt;http://www.teknomavi.com/yazilim/php/composer-paket-yoneticisi-nedir-nasil-kurulur-nasil-kullanilir/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </content>
   </entry>
   
