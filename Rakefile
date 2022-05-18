@@ -364,7 +364,7 @@ task :find, :word do |task, args|
   end
 end
 
-# Sitede bulunan gönderilerden en son düzenleneni aç
+# Sitede bulunan gönderilerden en son düzenleneni editörde aç
 task :last do
 
   # bir şekilde editör kullanmalıyız
